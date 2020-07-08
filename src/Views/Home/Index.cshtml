@@ -1,0 +1,20 @@
+﻿@model HomeViewModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Sudoku Solver</h1>
+    @using (Html.BeginForm("Index", "Home", FormMethod.Post))
+    {
+        <div>
+            <button id="solve">Solve!</button>
+        </div>
+        <div class="sudoku-grid">
+            @foreach (var kvp in Model.Grid)
+            {
+                <input type="number" name="grid[@kvp.Key]" value="@kvp.Value" />
+            }
+        </div>
+    }
+</div>
